@@ -28,10 +28,10 @@ fn debug() {
     system.refresh_all();
 
 // Getting processes data
-    println!("ID\t NAME\t PATH\t MEMORY");
+    println!("ID\t NAME\t PATH\t MEMORY\t STATUS");
     for (pid, proc) in system.get_processes() {
         if proc.name().contains("unity") {
-            println!("{}\t {}\t {}\t {}", pid, proc.name(),proc.exe().display(), proc.memory());
+            println!("{}\t {}\t {}\t {}\t {}", pid, proc.name(),proc.exe().display(), proc.memory(), proc.status());
             memusage.push((graph_index, proc.memory() as f32));
             graph_index+=1 as f32;
         }
